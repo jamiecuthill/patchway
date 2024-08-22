@@ -29,8 +29,12 @@ type ReplaceOperation struct {
 }
 
 func (o ReplaceOperation) String() string {
+	return string(o.Bytes())
+}
+
+func (o ReplaceOperation) Bytes() []byte {
 	b, _ := json.Marshal(o)
-	return string(b)
+	return b
 }
 
 func escapeJSONPointer(s string) string {
